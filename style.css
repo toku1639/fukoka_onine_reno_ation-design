@@ -556,25 +556,20 @@ a {
 }
 
 .report-lead {
-  margin: 0 0 8px;
+  margin: 0;
   font-size: 0.9rem;
   line-height: 1.6;
 }
 
-.report-link {
-  display: inline-block;
-  text-decoration: none;
-  border-radius: 999px;
-  background-color: #f2d300;
-  color: #222222;
+.report-inline-link {
+  color: #0b57d0;
   font-weight: 700;
-  padding: 7px 14px;
-  font-size: 0.86rem;
-  border: 1px solid #e0c100;
+  text-decoration: underline;
+  text-underline-offset: 2px;
 }
 
-.report-link:hover {
-  opacity: 0.92;
+.report-inline-link:hover {
+  opacity: 0.85;
 }
 
 .zoom-target {
