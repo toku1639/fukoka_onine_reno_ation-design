@@ -12,11 +12,18 @@
   <header class="site-header">
     <div class="header-top">
       <div class="header-inner">
-        <div class="site-logo">FUKUOKA <span>Online</span></div>
+        <div class="header-top-main">
+          <div class="site-logo">FUKUOKA <span>Online</span></div>
+          <button class="hamburger" type="button" aria-label="メニューを開く" aria-expanded="false" aria-controls="siteNav">
+            <span></span>
+            <span></span>
+            <span></span>
+          </button>
+        </div>
         <div class="site-copy">テキスト</div>
       </div>
     </div>
-    <div class="header-nav">
+    <div class="header-nav" id="siteNav">
       <div class="header-inner nav-items">
         <span>テキスト</span>
         <span>テキスト</span>
@@ -44,6 +51,30 @@
         <h1 class="article-title">タイトル</h1>
 
         <img class="hero-image" src="https://placehold.jp/1000x560.png?text=%E7%94%BB%E5%83%8F" alt="画像">
+
+        <section class="editor-profile" aria-label="編集者プロフィール">
+          <img class="editor-avatar" src="https://placehold.jp/96x96.png?text=%E7%94%BB%E5%83%8F" alt="画像">
+          <div class="editor-body">
+            <p class="editor-label">編集者プロフィール</p>
+            <p class="editor-name">福岡太郎</p>
+            <p class="editor-desc">テキスト・テキスト・テキスト・テキスト・テキスト</p>
+          </div>
+        </section>
+
+        <section class="toc-box" aria-label="目次">
+          <p class="toc-title">目次</p>
+          <ol class="toc-list">
+            <li>テキスト</li>
+            <li>
+              テキスト
+              <ol>
+                <li>テキスト</li>
+                <li>テキスト</li>
+              </ol>
+            </li>
+            <li>テキスト</li>
+          </ol>
+        </section>
 
         <h2 class="heading-2">見出し2</h2>
         <p>テキスト・テキスト・テキスト・テキスト・テキスト・テキスト・テキスト・テキスト・テキスト・テキスト・テキスト・テキスト</p>
@@ -87,36 +118,32 @@
         <ul class="custom-list">
           <li>リスト・リスト・リスト・リスト・リスト・リスト・リスト・リスト</li>
           <li>リスト・リスト・リスト・リスト・リスト・リスト・リスト・リスト</li>
-          <li><span class="highlight-text">リスト・リスト・リスト・リスト・リスト・リスト・リスト・リスト</span></li>
         </ul>
 
         <p>テキスト・テキスト・テキスト・テキスト・テキスト・テキスト・テキスト</p>
-        <table class="custom-table">
-          <thead>
-            <tr>
-              <th>テキスト</th>
-              <th>テキスト</th>
-              <th>テキスト</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td>テキスト</td>
-              <td>テキスト</td>
-              <td class="status-good">テキスト</td>
-            </tr>
-            <tr>
-              <td>テキスト</td>
-              <td>テキスト</td>
-              <td class="status-warning">テキスト</td>
-            </tr>
-            <tr>
-              <td>テキスト</td>
-              <td>テキスト</td>
-              <td class="status-good">テキスト</td>
-            </tr>
-          </tbody>
-        </table>
+        <div class="table-scroll">
+          <p class="table-scroll-note">※ テーブルは横にスクロールできます</p>
+          <table class="custom-table">
+            <tbody>
+              <tr>
+                <th>テキスト</th>
+                <td>テキスト</td>
+              </tr>
+              <tr>
+                <th>テキスト</th>
+                <td>テキスト</td>
+              </tr>
+              <tr>
+                <th>テキスト</th>
+                <td>テキスト</td>
+              </tr>
+              <tr>
+                <th>テキスト</th>
+                <td>テキスト</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
 
         <p>テキスト・テキスト・テキスト・テキスト・テキスト・テキスト・テキスト</p>
         <a href="#" class="card-link">
@@ -132,7 +159,7 @@
 
         <section class="faq-section" aria-label="FAQ">
           <h2 class="faq-heading">FAQ</h2>
-          <p class="faq-lead">テキスト</p>
+          <p class="faq-lead">テキスト・テキスト・テキスト・テキスト・テキスト</p>
 
           <div class="faq-accordion">
             <details class="faq-item" open>
@@ -169,6 +196,12 @@
                 <p>A. テキスト</p>
               </div>
             </details>
+          </div>
+        </section>
+
+        <section class="report-section" aria-label="情報修正のご案内">
+          <div class="report-box">
+            <p class="report-lead">店舗情報に誤りがある場合や、閉店・移転などを確認された場合は、<a class="report-inline-link" href="report-form.html" target="_blank" rel="noopener noreferrer">専用フォームより</a>ご報告ください。</p>
           </div>
         </section>
       </main>
@@ -215,5 +248,57 @@
       </aside>
     </div>
   </div>
+  <script>
+    (() => {
+      const header = document.querySelector(".site-header");
+      const button = document.querySelector(".hamburger");
+      if (!header || !button) return;
+
+      button.addEventListener("click", () => {
+        const isOpen = header.classList.toggle("nav-open");
+        button.setAttribute("aria-expanded", isOpen ? "true" : "false");
+      });
+
+      const zoomTargets = document.querySelectorAll(".hero-image, .sub-image, .editor-avatar");
+      const lightbox = document.createElement("div");
+      lightbox.className = "image-lightbox";
+      lightbox.innerHTML = `
+        <button type="button" class="lightbox-close" aria-label="閉じる">×</button>
+        <img class="lightbox-image" src="" alt="拡大画像">
+      `;
+      document.body.appendChild(lightbox);
+
+      const lightboxImage = lightbox.querySelector(".lightbox-image");
+      const closeButton = lightbox.querySelector(".lightbox-close");
+
+      const openLightbox = (src, alt) => {
+        lightboxImage.src = src;
+        lightboxImage.alt = alt || "拡大画像";
+        lightbox.classList.add("is-open");
+      };
+
+      const closeLightbox = () => {
+        lightbox.classList.remove("is-open");
+        lightboxImage.src = "";
+      };
+
+      zoomTargets.forEach((img) => {
+        img.classList.add("zoom-target");
+        img.addEventListener("click", (event) => {
+          event.preventDefault();
+          event.stopPropagation();
+          openLightbox(img.currentSrc || img.src, img.alt);
+        });
+      });
+
+      lightbox.addEventListener("click", (event) => {
+        if (event.target === lightbox) closeLightbox();
+      });
+      closeButton.addEventListener("click", closeLightbox);
+      document.addEventListener("keydown", (event) => {
+        if (event.key === "Escape") closeLightbox();
+      });
+    })();
+  </script>
 </body>
 </html>
