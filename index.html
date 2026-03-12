@@ -122,7 +122,11 @@
 
         <p>テキスト・テキスト・テキスト・テキスト・テキスト・テキスト・テキスト</p>
         <div class="table-scroll">
-          <p class="table-scroll-note">※ テーブルは横にスクロールできます</p>
+          <div class="table-scroll-hint" aria-hidden="true">
+            <span class="hint-arrows">⇆</span>
+            <span class="hint-hand">☝</span>
+            <span class="hint-text">スクロールできます</span>
+          </div>
           <table class="custom-table">
             <tbody>
               <tr>
@@ -157,7 +161,7 @@
           <div class="card-content">
             <div class="card-title">サムネタイトル</div>
             <div class="card-desc">テキストディスクリプション</div>
-            <span class="card-btn">ボタン</span>
+            <span class="card-btn">詳細はこちら</span>
           </div>
         </a>
 
@@ -262,6 +266,26 @@
         const isOpen = header.classList.toggle("nav-open");
         button.setAttribute("aria-expanded", isOpen ? "true" : "false");
       });
+
+      const isSp = window.matchMedia("(max-width: 640px)").matches;
+      if (isSp) {
+        const tableScrolls = document.querySelectorAll(".table-scroll");
+        tableScrolls.forEach((wrap) => {
+          const hint = wrap.querySelector(".table-scroll-hint");
+          if (!hint) return;
+
+          wrap.classList.add("show-hint");
+
+          const hideHint = () => {
+            wrap.classList.remove("show-hint");
+          };
+
+          window.setTimeout(hideHint, 2600);
+          wrap.addEventListener("scroll", hideHint, { once: true, passive: true });
+          wrap.addEventListener("touchstart", hideHint, { once: true, passive: true });
+          wrap.addEventListener("pointerdown", hideHint, { once: true, passive: true });
+        });
+      }
 
       const zoomTargets = document.querySelectorAll(".hero-image, .sub-image, .editor-avatar");
       const lightbox = document.createElement("div");
