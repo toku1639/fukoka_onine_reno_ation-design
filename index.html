@@ -122,32 +122,136 @@
 
         <p>テキスト・テキスト・テキスト・テキスト・テキスト・テキスト・テキスト</p>
         <div class="table-scroll">
+          <p class="table-scroll-note">※ 表は横にスクロールできます</p>
+          <div class="table-scroll-edge-hint" aria-hidden="true">
+            <span class="edge-arrow">←</span>
+            <span class="edge-hand">👈</span>
+          </div>
           <div class="table-scroll-hint" aria-hidden="true">
             <span class="hint-arrows">⇆</span>
             <span class="hint-hand">☝</span>
             <span class="hint-text">スクロールできます</span>
           </div>
-          <table class="custom-table">
+          <table class="custom-table compare-table compare-table--wide">
+            <thead>
+              <tr>
+                <th class="row-title">事務所名</th>
+                <th>
+                  <div class="service-head">
+                    <img src="https://placehold.jp/220x80.png?text=%E7%94%BB%E5%83%8F" alt="画像">
+                    <div class="service-name">Alpha Marketing</div>
+                  </div>
+                </th>
+                <th>
+                  <div class="service-head">
+                    <img src="https://placehold.jp/220x80.png?text=%E7%94%BB%E5%83%8F" alt="画像">
+                    <div class="service-name">Growth Partners</div>
+                  </div>
+                </th>
+                <th>
+                  <div class="service-head">
+                    <img src="https://placehold.jp/220x80.png?text=%E7%94%BB%E5%83%8F" alt="画像">
+                    <div class="service-name">Digital Boost</div>
+                  </div>
+                </th>
+              </tr>
+            </thead>
             <tbody>
               <tr>
-                <th>会社名</th>
-                <td>テーブル株式会社</td>
+                <th class="row-title">総合評価</th>
+                <td><span class="score">4.8</span> ★★★★★</td>
+                <td><span class="score">4.3</span> ★★★★☆</td>
+                <td><span class="score">4.2</span> ★★★★☆</td>
               </tr>
               <tr>
-                <th>創業</th>
-                <td>1940年</td>
+                <th class="row-title">月額目安</th>
+                <td>30万円〜</td>
+                <td>20万円〜</td>
+                <td>25万円〜</td>
               </tr>
               <tr>
-                <th>従業員数</th>
-                <td>500人</td>
+                <th class="row-title">対応領域</th>
+                <td>SEO / 広告運用 / SNS</td>
+                <td>広告運用 / LP改善</td>
+                <td>SEO / コンテンツ制作</td>
               </tr>
               <tr>
-                <th>所在地</th>
+                <th class="row-title">得意業種</th>
+                <td>BtoB / IT</td>
+                <td>EC / 美容</td>
+                <td>店舗 / 旅行</td>
+              </tr>
+              <tr>
+                <th class="row-title">特徴</th>
+                <td>
+                  <ul class="feature-list">
+                    <li>戦略設計から実行まで一気通貫</li>
+                    <li>レポートが分かりやすい</li>
+                    <li>伴走型サポートが手厚い</li>
+                  </ul>
+                </td>
+                <td>
+                  <ul class="feature-list">
+                    <li>広告運用の改善速度が高い</li>
+                    <li>クリエイティブ制作も対応</li>
+                    <li>費用対効果の最適化が得意</li>
+                  </ul>
+                </td>
+                <td>
+                  <ul class="feature-list">
+                    <li>SEOの長期運用に強い</li>
+                    <li>記事制作体制が豊富</li>
+                    <li>地方集客の実績が多い</li>
+                  </ul>
+                </td>
+              </tr>
+              <tr>
+                <th class="row-title">会社詳細</th>
+                <td><a href="#" class="compare-cta">会社詳細</a></td>
+                <td><a href="#" class="compare-cta">会社詳細</a></td>
+                <td><a href="#" class="compare-cta">会社詳細</a></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h3 class="heading-3">会社概要</h3>
+        <div class="table-scroll">
+          <p class="table-scroll-note">※ 表は横にスクロールできます</p>
+          <div class="table-scroll-edge-hint" aria-hidden="true">
+            <span class="edge-arrow">←</span>
+            <span class="edge-hand">👈</span>
+          </div>
+          <div class="table-scroll-hint" aria-hidden="true">
+            <span class="hint-arrows">⇆</span>
+            <span class="hint-hand">☝</span>
+            <span class="hint-text">スクロールできます</span>
+          </div>
+          <table class="custom-table compare-table">
+            <tbody>
+              <tr>
+                <th class="row-title">会社名</th>
+                <td>株式会社サンプルマーケティング</td>
+              </tr>
+              <tr>
+                <th class="row-title">所在地</th>
                 <td>福岡県福岡市中央区〇〇1-2-3</td>
               </tr>
               <tr>
-                <th>電話番号</th>
-                <td>000-000-0000</td>
+                <th class="row-title">設立</th>
+                <td>2014年4月</td>
+              </tr>
+              <tr>
+                <th class="row-title">代表者</th>
+                <td>福岡 太郎</td>
+              </tr>
+              <tr>
+                <th class="row-title">事業内容</th>
+                <td>SEO支援、広告運用代行、コンテンツ制作、SNS運用支援</td>
+              </tr>
+              <tr>
+                <th class="row-title">お問い合わせ</th>
+                <td>info@example.co.jp / 092-000-0000</td>
               </tr>
             </tbody>
           </table>
@@ -268,23 +372,38 @@
       });
 
       const isSp = window.matchMedia("(max-width: 640px)").matches;
+      const tableScrollsAll = document.querySelectorAll(".table-scroll");
+
+      const updateOverflowHint = () => {
+        tableScrollsAll.forEach((wrap) => {
+          const hasOverflow = wrap.scrollWidth > wrap.clientWidth + 1;
+          wrap.classList.toggle("has-overflow", hasOverflow);
+        });
+      };
+
+      const markScrolledIfNeeded = (wrap) => {
+        if (wrap.scrollLeft > 6 && wrap.dataset.scrolled !== "1") {
+          wrap.dataset.scrolled = "1";
+          wrap.classList.add("has-scrolled");
+          wrap.classList.remove("show-hint");
+        }
+      };
+
+      tableScrollsAll.forEach((wrap) => {
+        wrap.addEventListener("scroll", () => markScrolledIfNeeded(wrap), { passive: true });
+      });
+
+      updateOverflowHint();
+      window.addEventListener("resize", updateOverflowHint);
+
       if (isSp) {
-        const tableScrolls = document.querySelectorAll(".table-scroll");
         const startHint = (wrap) => {
           const hint = wrap.querySelector(".table-scroll-hint");
-          if (!hint || wrap.dataset.hintShown === "1") return;
+          const hasOverflow = wrap.scrollWidth > wrap.clientWidth + 1;
+          if (!hint || !hasOverflow || wrap.dataset.hintShown === "1" || wrap.dataset.scrolled === "1") return;
 
           wrap.dataset.hintShown = "1";
           wrap.classList.add("show-hint");
-
-          const hideHint = () => {
-            wrap.classList.remove("show-hint");
-          };
-
-          window.setTimeout(hideHint, 2600);
-          wrap.addEventListener("scroll", hideHint, { once: true, passive: true });
-          wrap.addEventListener("touchstart", hideHint, { once: true, passive: true });
-          wrap.addEventListener("pointerdown", hideHint, { once: true, passive: true });
         };
 
         if ("IntersectionObserver" in window) {
@@ -298,9 +417,9 @@
             },
             { threshold: 0.45 }
           );
-          tableScrolls.forEach((wrap) => observer.observe(wrap));
+          tableScrollsAll.forEach((wrap) => observer.observe(wrap));
         } else {
-          tableScrolls.forEach((wrap) => startHint(wrap));
+          tableScrollsAll.forEach((wrap) => startHint(wrap));
         }
       }
 
