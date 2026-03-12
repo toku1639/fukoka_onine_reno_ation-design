@@ -330,7 +330,7 @@ a {
   list-style-type: none;
   padding-left: 0;
   margin: 1.5em 0;
-  background-color: #fffdf6;
+  background-color: #fff7dc;
   border: 1px solid #f1e2a6;
   border-radius: 6px;
   overflow: hidden;
@@ -397,7 +397,7 @@ a {
 .custom-table td {
   width: 70%;
   text-align: left;
-  background-color: #fffdf6;
+  background-color: #fff7dc;
   padding: 12px 10px 12px 22px;
   color: #222222;
 }
