@@ -270,10 +270,11 @@
       const isSp = window.matchMedia("(max-width: 640px)").matches;
       if (isSp) {
         const tableScrolls = document.querySelectorAll(".table-scroll");
-        tableScrolls.forEach((wrap) => {
+        const startHint = (wrap) => {
           const hint = wrap.querySelector(".table-scroll-hint");
-          if (!hint) return;
+          if (!hint || wrap.dataset.hintShown === "1") return;
 
+          wrap.dataset.hintShown = "1";
           wrap.classList.add("show-hint");
 
           const hideHint = () => {
@@ -284,7 +285,23 @@
           wrap.addEventListener("scroll", hideHint, { once: true, passive: true });
           wrap.addEventListener("touchstart", hideHint, { once: true, passive: true });
           wrap.addEventListener("pointerdown", hideHint, { once: true, passive: true });
-        });
+        };
+
+        if ("IntersectionObserver" in window) {
+          const observer = new IntersectionObserver(
+            (entries) => {
+              entries.forEach((entry) => {
+                if (!entry.isIntersecting) return;
+                startHint(entry.target);
+                observer.unobserve(entry.target);
+              });
+            },
+            { threshold: 0.45 }
+          );
+          tableScrolls.forEach((wrap) => observer.observe(wrap));
+        } else {
+          tableScrolls.forEach((wrap) => startHint(wrap));
+        }
       }
 
       const zoomTargets = document.querySelectorAll(".hero-image, .sub-image, .editor-avatar");
